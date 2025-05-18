@@ -1,0 +1,65 @@
+<nz-layout class="app-layout">
+  <nz-sider
+    class="menu-sidebar"
+    nzCollapsible
+    nzWidth="256px"
+    nzBreakpoint="md"
+    [(nzCollapsed)]="isCollapsed"
+    [nzTrigger]="null"
+  >
+    <div class="sidebar-logo">
+      <a href="#" target="_blank">
+        <img src="https://cdn.prod.website-files.com/6523c506e331313328b12b73/6523e2caea4ee30f9c2ff87d_time%20tracking%20(2).jpg" alt="logo">
+        <h1>Attendance System</h1>
+      </a>
+    </div>
+    <ul nz-menu nzTheme="dark" nzMode="inline" nzInlineCollapsed="isCollapsed">
+      <li *ngIf="userType === 'manager'" nz-submenu nzOpen nzTitle="Manager" nzIcon="dashboard">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/manager/dashboard">Dashboard</a>
+          </li>
+          <!-- <li nz-menu-item nzMatchRouter>
+            <a routerLink="/manager/roster">Roster</a>
+          </li> -->
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/manager/attendance">Staff Attendance</a>
+          </li>
+        </ul>
+      </li>
+
+      <li *ngIf="userType === 'staff'" nz-submenu nzOpen nzTitle="Staff" nzIcon="form">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/staff/shift">Shift</a>
+          </li>
+          <!-- <li nz-menu-item nzMatchRouter>
+            <a routerLink="/staff/staff-attendance">Attendance</a>
+          </li> -->
+        </ul>
+      </li>
+
+      <li nz-menu-item nzMatchRouter (click)="logOut()">
+        <a>Logout</a>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <div class="app-header">
+        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+          <span
+            class="trigger"
+            nz-icon
+            [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+          ></span>
+        </span>
+      </div>
+    </nz-header>
+    <nz-content>
+      <div class="inner-content">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>

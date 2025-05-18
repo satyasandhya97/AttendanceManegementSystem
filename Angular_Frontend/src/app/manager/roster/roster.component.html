@@ -1,0 +1,68 @@
+<div *ngIf="staffId">
+    <div class="header-container">
+        <h2>Shift Details</h2>
+        <div class="addShift">
+            <button (click)="addShift()">Add Shift</button>
+        </div>
+    </div>
+    <table class="shift-table" *ngIf="shifts.length">
+        <thead>
+            <tr>
+                <th>Shift Date</th>
+                <th>Shift Type</th>
+                <th>Shift Time</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let shift of shifts">
+                <td>{{ shift.Date }}</td>
+                <td>{{ shift.shiftType }}</td>
+                <td>{{ shift.shiftTiming }}</td>
+                <td>
+                    <!-- <button>Edit</button>&nbsp; -->
+                    <button (click)="deleteShift(shift?._id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div *ngIf="!shifts.length">
+        <p>No shifts available for this staff member.</p>
+    </div>
+</div>
+
+
+<div *ngIf="isModalVisible" class="modal-overlay">
+    <div class="modal-content">
+        <h2>Add Shift</h2>
+        <form [formGroup]="shiftForm" (ngSubmit)="submitShift()">
+            <div class="form-group">
+                <label for="workingDay">Date:</label>
+                <input id="Date" type="date" formControlName="Date" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="shiftTiming">Shift Timing:</label>
+                <select id="shiftTiming" formControlName="shiftTiming">
+                    <option *ngFor="let timing of shiftTimings" [value]="timing">{{ timing }}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="shiftType">Shift Type:</label>
+                <select id="shiftType" formControlName="shiftType">
+                    <option *ngFor="let type of shiftType" [value]="type">{{ type }}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="workingDay">Working Day:</label>
+                <select id="workingDay" formControlName="workingDay">
+                    <option *ngFor="let day of daysOfWeek" [value]="day">{{ day }}</option>
+                </select>
+            </div>
+            <div class="shiftButton">
+                <button type="submit">Add Shift</button>&nbsp;
+                <button type="button" (click)="closeModal()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>

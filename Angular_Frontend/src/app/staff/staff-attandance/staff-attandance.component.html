@@ -1,0 +1,24 @@
+<div class="container" style="text-align:center">
+    <h3>Shift ID: {{ shiftId }}</h3>
+  
+    <div class="webcam-container">
+      <div class="webcam">
+        <webcam [height]="200" [width]="280" [trigger]="triggerObservable" (imageCapture)="handleImage($event)"
+          *ngIf="showWebcam" [allowCameraSwitch]="allowCameraSwitch"  
+          [videoOptions]="videoOptions" (initError)="handleInitError($event)">
+        </webcam>
+        <br />
+        <div class="actionBtn" (click)="triggerSnapshot();" title="Take Picture">📸</div>
+      </div>
+  
+      <div class="snapshot" *ngIf="webcamImage">
+        <img [height]="200" [width]="270" [src]="webcamImage.imageAsDataUrl" />
+      </div>
+    </div>
+  
+    <h4 *ngIf="errors.length > 0">Messages:</h4>
+    <ul *ngFor="let error of errors">
+      <li>{{ error }}</li>
+    </ul>
+  </div>
+  

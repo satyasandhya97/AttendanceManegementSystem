@@ -1,0 +1,64 @@
+<div class="staff-table-container">
+    <div class="header-container">
+        <h2>Staff List</h2>
+        <div class="addStaff">
+          <button (click)="openModal()">Add Staff</button>
+        </div>
+      </div>
+    <table class="staff-table">
+        <thead>
+            <tr>
+              <th>Staff Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Shift</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let staff of staffList">
+              <td>{{ staff.staffName }}</td>
+              <td>{{ staff.email }}</td>
+              <td>{{ staff.phone }}</td>
+              <td>
+                <button (click)="addShift(staff)">Add Shift</button>&nbsp;
+                <button (click)="addShift(staff)">View Shift</button>
+              </td>
+              <td>
+                <div class="tableButton">
+                    <button (click)="editStaff(staff)">Edit</button>&nbsp;
+                    <button (click)="deleteStaff(staff?._id)">Delete</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+    </table>
+  
+  </div>
+
+
+  
+<div *ngIf="isModalVisible" class="modal-overlay">
+    <div class="modal-content">
+      <h2>{{ isEditing ? 'Edit Staff' : 'Add Staff' }}</h2>
+      <form [formGroup]="staffForm" (ngSubmit)="submitStaff()">
+        <div class="form-group">
+          <label for="staffName">Staff Name:</label>
+          <input type="text" id="staffName" formControlName="staffName" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" formControlName="email" required />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone:</label>
+          <input type="tel" id="phone" formControlName="phone" required />
+        </div>
+        <div class="staffbutton">
+            <button type="submit">{{ isEditing ? 'Update' : 'Add' }}</button>&nbsp;
+            <button type="button" (click)="closeModal()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
