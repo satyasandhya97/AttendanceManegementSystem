@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="role-selection" *ngIf="!selectedRole">
+      <h2>Select Role</h2>
+      <button (click)="selectRole('staff')" class="btn btn-primary">Staff</button>
+      <button (click)="selectRole('manager')" class="btn btn-secondary">Manager</button>
+    </div>
+  
+    <div class="login-container" *ngIf="selectedRole">
+      <div class="login-form">
+        <div>
+          <h2>Login as {{ selectedRole | titlecase }}</h2>
+          <form [formGroup]="logInForm" (submit)="submitlogin($event)">
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="text" formControlName="email" class="form-control" id="email" placeholder="Enter your email" required>
+            </div>
+            <div *ngIf="selectedRole === 'manager'" class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" formControlName="password" class="form-control" id="password" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-custom">Login</button>
+          </form>
+        </div>
+  
+        <div *ngIf="selectedRole === 'manager'" class="text-center small">
+          Don't have an account? <a routerLink="/register">Register</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  

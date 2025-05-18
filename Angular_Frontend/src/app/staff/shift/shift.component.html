@@ -1,0 +1,33 @@
+<div class="container">
+    <h2>{{ staffDetails?.staffName }}'s Shifts</h2>
+    <div class="staff-details">
+      <p>Email: {{ staffDetails?.email }}</p>
+      <p>Phone: {{ staffDetails?.phone }}</p>
+    </div>
+  
+    <table class="shift-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Shift Timing</th>
+          <th>Shift Type</th>
+          <th>Working Days</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let shift of staffDetails?.rosterDetails">
+          <td>{{ shift.Date }}</td>
+          <td>{{ shift.shiftTiming }}</td>
+          <td>{{ shift.shiftType }}</td>
+          <td>{{ shift.workingDays }}</td>
+          <td>{{ shift?.status }}</td>
+          <td>
+            <button (click)="AddAttendance(shift)">Add Attendance</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

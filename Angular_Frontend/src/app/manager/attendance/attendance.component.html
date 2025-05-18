@@ -1,0 +1,30 @@
+<div class="container">
+    <h2>Attendance Details</h2>
+    <table class="attendance-table">
+      <thead>
+        <tr>
+          <th>Staff Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Date</th>
+          <th>Shift Timing</th>
+          <th>Shift Type</th>
+          <th>Working Days</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let shift of attandanceDetails">
+          <td>{{ shift.staffDetails.staffName }}</td>
+          <td>{{ shift.staffDetails.email }}</td>
+          <td>{{ shift.staffDetails.phone }}</td>
+          <td>{{ shift.Date }}</td>
+          <td>{{ shift.shiftTiming }}</td>
+          <td>{{ shift.shiftType }}</td>
+          <td>{{ shift.workingDays }}</td>
+          <td>{{ shift.status }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

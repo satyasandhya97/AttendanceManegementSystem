@@ -1,0 +1,148 @@
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+  
+.header-container h2 {
+    margin: 0;
+}
+  
+.addStaff {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.staff-table td button,
+.addStaff button {
+    background-color: #0091ff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 5px;
+}
+.modal-content form .staffbutton {
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.modal-content form .staffbutton button {
+    padding: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.modal-content form button:hover {
+    background-color: #218838;
+}
+  
+.addStaff button:hover {
+    background-color: #218838;
+}
+  
+.staff-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+  
+.staff-table th,
+.staff-table td {
+    padding: 12px 15px;
+    text-align: left;
+}
+  
+.staff-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+  
+.staff-table td {
+    border-bottom: 1px solid #ddd;
+}
+
+.edit-button {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+  
+.edit-button:hover {
+    background-color: #0056b3;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    text-align: center;
+}
+  
+.modal-content h2 {
+    margin-bottom: 20px;
+}
+  
+.form-group {
+    margin-bottom: 10px;
+}
+  
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+  
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+  
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    background-color:  #0056b3;
+    color: white;
+    cursor: pointer;
+}
+  
+button:hover {
+    background-color: #45a049;
+}
+
+.modal .close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    cursor: pointer;
+}
+  
+.modal .close:hover,
+.modal .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
